@@ -3,6 +3,7 @@
 一个不使用cgo的database/sql标准sqlite3驱动,原驱动`modernc.org/sqlite`,增加对goframe2+框架的支持(最新goframe已经有不使用cgo驱动了).
 
 ### 常规使用方法
+
 ~~~
 	"github.com/jmoiron/sqlx"
 	_ "github.com/logoove/sqlite"
@@ -29,7 +30,9 @@ func main() {
 ~~~
 
 ### goframe2.0+使用方法
+
 在manifeat/config/config.yaml配置
+
 ~~~
 _ "github.com/logoove/go/sqlite" //加在internal\cmd\cmd.go文件中
 
@@ -42,6 +45,7 @@ database:
 ~~~
 
 ### goframe2.0+ 非配置
+
 ~~~
 "github.com/gogf/gf/v2/database/gdb"
 _ "github.com/logoove/go/sqlite" //这是专门用于goframe2.0以上的驱动, 单文件写在main.go中, mvc架构放在internal\cmd\cmd.go
@@ -53,7 +57,9 @@ db.SetDebug(true) //可以显示sql语句
 list, _ := db.Model("zanzhu").Where("1=1").Order("id desc").Limit(page, pagesize).All() //简单查询, 可以不用建立数据表结构体
 
 ~~~
+
 ### 更新日志
+
 2023-10-09 v1.16.1 修复对goframe支持,更新到gitlab.com/cznic/sqlite最新1.26同步.对于goframe2以下版本可能不能使用.
 
 2022-3-22 v1.15.3 新增win amd64编译,解决内存泄漏问题.
